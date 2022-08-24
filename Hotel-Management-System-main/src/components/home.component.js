@@ -62,24 +62,25 @@ export default class Home extends Component {
     
       <div className="HomeBck">
         
-        <div style={{
+        {/* <div style={{
           display:"flex",
           flexDirection:"column",
           width:"100%"
         }}>
+        </div> */}
           <div style={{
-            width:"100%",
-            height:"700px",
+            // width:"100%",
+            // height:"700px",
 
-          background:`url('https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2232&q=80') no-repeat`,
-          // background:`url('./') no-repeat`,
+          // background:`url('https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2232&q=80') no-repeat`,
+          // background:`url('https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=600') no-repeat`,
 
-          backgroundSize:"cover",
+          // backgroundSize:"contain",
           
             }}></div>
           
           <section className="services">
-        <h1>Services</h1>
+        <h1>- - - - Services - - - -</h1>
 
         <div className="services-center">
           {this.state.services.map((item, index) => {
@@ -94,7 +95,7 @@ export default class Home extends Component {
         </div>
       </section>
         </div>
-      </div>
+      // </div>
     );
   }
 }

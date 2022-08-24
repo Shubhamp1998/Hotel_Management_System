@@ -11,7 +11,7 @@ import AddRoom from "./Room/AddRoom";
 import AddEmployee from "./Employee/AddEmployee";
 import ViewEmployee from "./Employee/ViewEmployee";
 import ViewRooms from "./Room/ViewRooms";
-import UpdateRoom from "./Room/UpdateRoom";
+// import UpdateRoom from "./Room/UpdateRoom";
 import './admin-board.css'
 import {
   BarChart,
@@ -21,12 +21,14 @@ import {
   Legend,
   ResponsiveContainer,
   Tooltip,
-  PieChart,
-  Pie,
-  Cell,
+  // PieChart,
+  // Pie,
+  // Cell,
 } from "recharts"
 import Axios from "axios";
-import { CenterFocusStrong } from "@material-ui/icons";
+// import { CenterFocusStrong } from "@material-ui/icons";
+import ViewGuest from "./Guest/ViewGuest";
+import AddGuest from "./Guest/AddGuest";
 
 export default class BoardAdmin extends Component {
   constructor(props) {
@@ -209,13 +211,17 @@ export default class BoardAdmin extends Component {
               <Col md={3}>
                 <AdminMenu className="card-ad"/>
               </Col>
-              <Col md={6}>
+              <Col lg={12} id = 'viewBlock'>
                 <Route path="/add-room" component={AddRoom} exact />
                 <Route path="/view-rooms" component={ViewRooms} exact />
                 <Route path="/updateRoom/:roomNum" component={AddRoom} exact />
                 <Route path="/add-employee" component={AddEmployee} exact />
                 <Route path="/updateStaff/:code" component={AddEmployee} exact />
                 <Route path="/view-employees" component={ViewEmployee} exact />
+                <Route path="/view-guest" component={ViewGuest} exact />
+                <Route path="/add-guest" component={AddGuest} exact />
+                <Route path="/update-guest" component={AddGuest} exact />
+
                 <hr />
               </Col>
             </Row>

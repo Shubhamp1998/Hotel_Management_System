@@ -101,7 +101,7 @@ export default class Login extends Component {
       }} className="col-md-12">
         <div className="card card-container" style={{marginTop:"0px",width:"600px",backgroundColor:"#CAC6D2",borderRadius:"20px"}}>
           <img
-            src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+            src="https://cdn.pixabay.com/photo/2020/07/14/13/07/icon-5404125_1280.png"
             alt="profile-img"
             className="profile-img-card"
           />

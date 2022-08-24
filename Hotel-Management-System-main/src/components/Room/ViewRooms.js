@@ -72,7 +72,7 @@ class ViewRooms extends Component {
                                         <ButtonGroup>
                                        
                                         {/* <Button color="info">Update</Button>{ ''} */}
-                                        <Button  color="secondary" onClick={this.deleteRoom.bind(this, room.id)}>Delete</Button>
+                                        <Button  color="danger" onClick={this.deleteRoom.bind(this, room.id)}>Delete</Button>
                                         </ButtonGroup>
                                         </td>
                                     </tr>

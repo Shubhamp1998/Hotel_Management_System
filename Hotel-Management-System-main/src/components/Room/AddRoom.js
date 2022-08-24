@@ -49,7 +49,7 @@ const AddRoom = () => {
         <Form onSubmit={handleForm}>
         <FormGroup>
         <Label for="roomId">Room Num</Label>
-        <Input type="text" value={room.roomNo} name="roomId" id="roomId" placeholder="Enter Room Num to Assign Room ID" autoComplete="off"
+        <Input type="text" value={room.roomNo} name="roomId" id="roomId" data-testid= "Enter Room Num to Assign Room ID" placeholder="Enter Room Num to Assign Room ID" autoComplete="off"
         onChange={ (e) => {
           setRoom({...room, roomNo:e.target.value})}}
         />
@@ -57,7 +57,7 @@ const AddRoom = () => {
 
       <FormGroup>
         <Label for="price">Room Cost</Label>
-        <Input type="text" value={room.price} name="price" id="price" placeholder="Enter The Cost of Room " autoComplete="off"
+        <Input type="text" value={room.price} name="price" id="price" data-testid= "Enter The Cost of Room" placeholder="Enter The Cost of Room" autoComplete="off"
         onChange={ (e) => {
           setRoom({...room, price:e.target.value})}}
         />
@@ -80,8 +80,8 @@ const AddRoom = () => {
       </FormGroup>
       
       <Container className="text-center">
-      <Button type="submit" color="success">Add Room</Button>
-      <Button type="reset" color="warning ml-3">Clear</Button>
+      <Button type="submit" data-testid= "submit" color="success">Add Room</Button>
+      <Button type="reset" data-testid= "reset" color="warning ml-3">Clear</Button>
       </Container>
         </Form>
         </Card>

@@ -27,7 +27,9 @@ class AuthService {
       username,
       email,
       password,
-      roles:["user","manager","admin","receptionist"]
+      // roles:["user","manager","admin","receptionist"]
+      roles:["user"]
+
     });
   }
 

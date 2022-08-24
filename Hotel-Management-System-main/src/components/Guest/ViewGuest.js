@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Button, ButtonGroup } from 'reactstrap';
 import { toast } from "react-toastify"
-
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+// import './viewGuest.css'
+import './viewGuest.css'
+
 
 class ViewGuest extends Component {
 
@@ -19,7 +21,9 @@ class ViewGuest extends Component {
     }
 
     getllguests(){
-        axios.get("https://0114-49-204-77-246.ngrok.io//guest/api/findAllguests")
+        // axios.get("https://0114-49-204-77-246.ngrok.io//guest/api/findAllguests")
+        axios.get("http://localhost:8006/api/g/guest")
+
         .then(response => response.data)
         .then(data => {
             this.setState({guests: data})
@@ -27,14 +31,15 @@ class ViewGuest extends Component {
     };
 
     
-    deleteGuest = (code) => {
-        axios.delete("https://0114-49-204-77-246.ngrok.io/guest/api/deleteguest/" +code)
+    deleteGuest = (guestId) => {
+        axios.delete("http://localhost:8006/api/g/deleteGuest/" +guestId)
+
         .then(response => {
             if(response.data != null){
                 alert("Guest Deleted Successfully.");
                 toast.warning("Guest Has been Deleted Successfully");
                 this.setState({
-                    guests: this.state.guests.filter(guests => guests.code != code)
+                    guests: this.state.guests.filter(guests => guests.guestId !== guestId)
                 });
             }
         });
@@ -42,7 +47,7 @@ class ViewGuest extends Component {
 
     render() {
         return (
-            <div>
+            <div className='viewGuest'>
             <h2 className="text-center"> Guests Data </h2>
             <hr />
             <div className="row">
@@ -52,7 +57,7 @@ class ViewGuest extends Component {
                         <tr>
                             <th>Guest Id</th>
                             <th>Guest Company Name</th>
-                            <th>Guest Fulll Name</th>
+                            <th>Guest Full Name</th>
                             <th>Guest Mail ID</th>
                             <th>Guest Gender</th>
                             <th>Guest Address</th>
@@ -68,7 +73,7 @@ class ViewGuest extends Component {
                             this.state.guests.map(
                                 guests =>
                                 <tr key ={guests.id}>
-                                    <td>{guests.code}</td>
+                                    <td>{guests.guestId}</td>
                                     <td>{guests.company}</td>
                                     <td>{guests.name}</td>
                                     <td>{guests.mailid}</td>
@@ -77,9 +82,9 @@ class ViewGuest extends Component {
                                     <td>{guests.phone_number}</td>
                                     <td>
                                     <ButtonGroup>
-                                    <Link to={"updateGuest/"+guests.code}  className="btn btn-primary">Update</Link>{''}
+                                    <Link to={"updateGuest/"+guests.guestId}  className="btn btn-primary">Update</Link>{''}
                                     {/* <Button color="info">Update</Button> */}
-                                    <Button color="secondary" onClick={this.deleteGuest.bind(this, guests.code)}>Delete</Button>
+                                    <Button className='deleteButton' color="danger" onClick={this.deleteGuest.bind(this, guests.guestId)}>Delete</Button>
                                     </ButtonGroup>
                                     </td>
                                 </tr>

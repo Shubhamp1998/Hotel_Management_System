@@ -24,6 +24,13 @@ const AdminMenu=()=>{
             <Link className="list-group-item card-ada list-group-item-action" tag="a" to="/view-employees" action>
                 View Employees
             </Link>
+            <Link className="list-group-item card-ada list-group-item-action" tag="a" to="/add-guest" action>
+                Add Guest
+            </Link>
+            <Link className="list-group-item card-ada list-group-item-action" tag="a" to="/view-guest" action>
+                View Guest
+            </Link>
+            
         </ListGroup>
 
     )

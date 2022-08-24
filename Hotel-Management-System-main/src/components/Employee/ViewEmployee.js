@@ -29,15 +29,15 @@ class ViewEmployee extends Component {
         });
     };
 
-    deleteEmployee = (code) => {
-        axios.delete("http://localhost:8002/api/v1/staff/" +code)
+    deleteEmployee = (id) => {
+        axios.delete("http://localhost:8002/api/v1/staff/" +id)
         .then(response => {
             if(response.data != null){
                 alert("Employee Deleted Successfully.");
                 toast.warning("Employee Has been Deleted Successfully");
                 this.setState({
                     // eslint-disable-next-line eqeqeq
-                    employees: this.state.employees.filter(employees => employees.code != code)
+                    employees: this.state.employees.filter(employees => employees.id != id)
                 });
             }
         });
@@ -63,7 +63,7 @@ class ViewEmployee extends Component {
                         <tbody>
                             {this.state.employees.length ===0 ?
                                 <tr>
-                                    <td colSpan="8">No Employee Available.</td>
+                                    <td colSpan="8">No Employee Available</td>
                                 </tr>:
                                 this.state.employees.map(
                                     employees =>
@@ -72,6 +72,13 @@ class ViewEmployee extends Component {
                                         <td>{employees.firstName}</td>
                                         <td>{employees.lastName}</td>                                    
                                         <td>{employees.emailId}</td>
+                                        <td>
+                                        <ButtonGroup>
+                                    <Link to={"updateEmployee/"+employees.id}  className="btn btn-primary">Update</Link>{''}
+                                    {/* <Button color="info">Update</Button> */}
+                                    <Button color="danger" onClick={this.deleteEmployee.bind(this, employees.id)}>Delete</Button>
+                                    </ButtonGroup>
+                                        </td>
                                     </tr>
                                 )
                             }

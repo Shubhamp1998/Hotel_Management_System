@@ -56,7 +56,7 @@ class App extends Component {
           
           <div className="navbar-nav">
             <li>
-              <Link to={"/home"} className="nav-link " >
+              <Link to="/" className="nav-link " >
                <img src="/images/logo.png" className="logo"/>
               </Link>
             </li>
@@ -111,14 +111,15 @@ class App extends Component {
         
         <ToastContainer />
           <Switch>
-            <Route exact path={["/", "/home"]} component={Home} />
+            {/* <Route exact path={["/", "/home"]} component={Home} /> */}
+            <Route exact path="/" component={Home} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/profile" component={Profile} />
             <Route path="/user" component={BoardUser} />
             <Route path="/mod" component={BoardModerator} />
             <Route path="/admin" component={BoardAdmin} />
-            <Route path="/otp" component={Otp} />
+            {/* <Route path="/otp" component={Otp} /> */}
           </Switch>
         
         <div>

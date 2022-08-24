@@ -18,27 +18,27 @@ class AddEmployee extends Component {
         id:'',emailId:'',firstName:'',lastName:''
     };
 
-    componentDidMount() {
-        const employeeId = +this.props.match.params.code;
-        if(employeeId) {
-            this.findEmployeeByCode(employeeId);
-        };
-    };
+    // componentDidMount() {
+    //     const employeeId = +this.props.match.params.code;
+    //     if(employeeId) {
+    //         this.findEmployeeByCode(employeeId);
+    //     };
+    // };
 
-    findEmployeeByCode = (employeeId) => {
-        axios.get("http://localhost:8002/api/v1/staff" +employeeId)
-            .then(response => {
-                if(response.data != null){
-                    this.setState({
-                        emailId: this.state.emailId,
-                        firstname: this.state.firstname,
-                        lastname: this.state.lastname,
-                    });
-                }
-            }).catch((error) => {
-                console.error("Error -"+error);
-            });
-    }
+    // findEmployeeByCode = (employeeId) => {
+    //     axios.get("http://localhost:8002/api/v1/staff" +employeeId)
+    //         .then(response => {
+    //             if(response.data != null){
+    //                 this.setState({
+    //                     emailId: this.state.emailId,
+    //                     firstname: this.state.firstname,
+    //                     lastname: this.state.lastname,
+    //                 });
+    //             }
+    //         }).catch((error) => {
+    //             console.error("Error -"+error);
+    //         });
+    // }
 
     resetEmployee = () => {
         this.setState(() => this.initialState);
@@ -100,14 +100,14 @@ class AddEmployee extends Component {
                     </FormGroup> */}
                     <FormGroup>
                     <Label for="id">Employee ID</Label>
-                    <Input type="text" name="id" id="id" placeholder="Enter Employee ID" autoComplete="off" required
+                    <Input type="text" name="id" id="id" data-testid="Enter Employee ID" placeholder="Enter Employee ID" autoComplete="off" required
                     value={id}
                     onChange={this.employeeChange}
                     />
                     </FormGroup>
                     <FormGroup>
                     <Label for="firstName">Employee First Name</Label>
-                    <Input type="text" name="firstName" id="firstName" placeholder="Enter Employee First Name" autoComplete="off" required
+                    <Input type="text" name="firstName" id="firstName" data-testid="Enter Employee First Name" placeholder="Enter Employee First Name" autoComplete="off" required
                     value={firstName}
                     onChange={this.employeeChange}
                     />
@@ -115,7 +115,7 @@ class AddEmployee extends Component {
 
                     <FormGroup>
                     <Label for="lastName">Employee Last Name</Label>
-                    <Input type="text" name="lastName" id="lastName" placeholder="Enter Employee Last Name" autoComplete="off" required
+                    <Input type="text" name="lastName" id="lastName" data-testid="Enter Employee Last Name" placeholder="Enter Employee Last Name" autoComplete="off" required
                     value={lastName}
                     onChange={this.employeeChange}
                     />
@@ -124,7 +124,7 @@ class AddEmployee extends Component {
                     
                     <FormGroup>
                     <Label for="emailId">Employee Mail ID</Label>
-                    <Input type="text" name="emailId" id="emailId" placeholder="Enter Employee Mail ID" autoComplete="off" required
+                    <Input type="text" name="emailId" id="emailId" data-testid="Enter Employee Mail ID" placeholder="Enter Employee Mail ID" autoComplete="off" required
                     value={emailId}
                     onChange={this.employeeChange}
                     />
@@ -132,8 +132,8 @@ class AddEmployee extends Component {
                     
                     </FormGroup>
                         <Container className="text-center">
-                        <Button type="submit" color="success">Add Employee</Button>
-                        <Button type="reset" color="warning ml-3">Clear</Button>
+                        <Button type="submit" data-testid="submit" color="success">Add Employee</Button>
+                        <Button type="reset" data-testid="reset" color="warning ml-3">Clear</Button>
                         <Button type="button" color="secondary ml-3" onClick={this.employeeList.bind()}>Employee List</Button>
                         </Container>
                     </Form>
